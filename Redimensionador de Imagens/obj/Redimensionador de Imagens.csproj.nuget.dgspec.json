@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj": {}
+    "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador-de-Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj": {}
   },
   "projects": {
-    "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj": {
+    "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador-de-Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj",
+        "projectUniqueName": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador-de-Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj",
         "projectName": "Redimensionador de Imagens",
-        "projectPath": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj",
+        "projectPath": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador-de-Imagens\\Redimensionador de Imagens\\Redimensionador de Imagens.csproj",
         "packagesPath": "C:\\Users\\Junior\\.nuget\\packages\\",
-        "outputPath": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador de Imagens\\obj\\",
+        "outputPath": "E:\\Desenvolvimento\\ASP\\Redimensionador de Imagens\\Redimensionador-de-Imagens\\Redimensionador de Imagens\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -41,6 +41,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

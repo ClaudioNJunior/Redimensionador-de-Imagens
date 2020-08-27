@@ -5,6 +5,14 @@
     <RootNamespace>Redimensionador_de_Imagens</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Importacoes\" />
+  </ItemGroup>
+
 
 
 </Project>

@@ -3,6 +3,53 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem vindo!</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
 </div>
+
+<form id="form">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label for="fupArquivos">Selecione seus arquivos</label>
+            <br />
+            <input id="fupArquivos" type="file" multiple name="arquivos" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="txtWidth">Largura máxima</label>
+            <input id="txtWidth" type="text" class="form-control" name="width" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="txtHeight">Altura máxima</label>
+            <input id="txtHeight" type="text" class="form-control" name="height" />
+        </div>
+        <div class="col-md-12 form-group">
+            <button type="submit" class="btn btn-primary" form="form" id="btnUpload" value="Reduzir imagens">Reduzir imagens</button>
+        </div>
+    </div>
+</form>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#form").submit(function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                console.log(formData);
+
+                $.ajax({
+                    url: "/Home/Redimensionar",
+                    type: 'POST',
+                    data: formData,
+                    success: function (data) {
+                        alert(data)
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+
+        });
+    </script>
+}
