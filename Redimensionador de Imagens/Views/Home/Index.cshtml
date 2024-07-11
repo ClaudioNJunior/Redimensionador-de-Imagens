@@ -35,7 +35,6 @@
             $("#form").submit(function (e) {
                 e.preventDefault();
                 var formData = new FormData(this);
-                console.log(formData);
 
                 $.ajax({
                     url: "/Home/Redimensionar",
@@ -66,6 +65,15 @@
                         a.click();
                         document.body.removeChild(a);
                         URL.revokeObjectURL(downloadUrl);
+                    },
+                    error: function (xhr, status, error) {
+                        // Tratamento de erro
+                        var reader = new FileReader();
+                        reader.onload = function () {
+                            var response = JSON.parse(reader.result);
+                            alert("Erro: " + response.message);
+                        };
+                        reader.readAsText(xhr.responseText);
                     },
                     cache: false,
                     contentType: false,

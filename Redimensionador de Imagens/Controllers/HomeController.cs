@@ -36,57 +36,63 @@ namespace Redimensionador_de_Imagens.Controllers
         [HttpPost]
         public ActionResult Redimensionar([FromForm] ArquivosProporcaoModel model)
         {
-            if (model == null)
-                throw new Exception("Sem objeto");
-
-            if (model.Arquivos.Count == 0 || model.Width <= 0 || model.Height <= 0)
-                throw new Exception("Todos os campos são essenciais");
-
-            foreach (var arquivo in model.Arquivos)
+            try
             {
-                if (arquivo.Length > 0)
+                if (model == null)
+                    return BadRequest(new { message = "Sem objeto" });
+
+                if (model.Arquivos.Count == 0 || (model.Width <= 0 && model.Height <= 0))
+                    return BadRequest(new { message = "Arquivo e pelo menos uma dimensão são essenciais" });
+
+                foreach (var arquivo in model.Arquivos)
                 {
-                    using (var ms = new MemoryStream())
+                    if (arquivo.Length > 0)
                     {
-                        arquivo.CopyTo(ms);
-
-                        float width = model.Width;
-                        float height = model.Height;
-                        var brush = new SolidBrush(Color.Black);
-                        var image = new Bitmap(System.Drawing.Image.FromStream(ms));
-                        float scale = Math.Min(width / image.Width, height / image.Height);
-                        var bmp = new Bitmap((int)(image.Width * scale), (int)(image.Height * scale));
-                        using (var graph = Graphics.FromImage(bmp))
+                        using (var ms = new MemoryStream())
                         {
-                            graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                            graph.CompositingQuality = CompositingQuality.HighQuality;
-                            graph.SmoothingMode = SmoothingMode.AntiAlias;
-                            graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                            var scaleWidth = (int)(image.Width * scale);
-                            var scaleHeight = (int)(image.Height * scale);
-                            graph.FillRectangle(brush, new RectangleF(0, 0, width, height));
-                            graph.DrawImage(image, 0, 0, scaleWidth, scaleHeight);
-                        }
+                            arquivo.CopyTo(ms);
 
-                        // Gera o nome do arquivo para download
-                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arquivo.FileName);
-                        string fileExtension = ".png";
-                        string fileName = $"{fileNameWithoutExtension}-{bmp.Width}x{bmp.Height}{fileExtension}";
+                            float width = model.Width;
+                            float height = model.Height;
+                            var image = new Bitmap(System.Drawing.Image.FromStream(ms));
+                            float scaleWidth = width > 0 ? width / image.Width : 0;
+                            float scaleHeight = height > 0 ? height / image.Height : 0;
+                            float scale = Math.Min(scaleWidth > 0 ? scaleWidth : scaleHeight, scaleHeight > 0 ? scaleHeight : scaleWidth);
 
-                        // Converte a imagem para um MemoryStream para envio
-                        using (var outputStream = new MemoryStream())
-                        {
-                            bmp.Save(outputStream, ImageFormat.Png);
-                            outputStream.Seek(0, SeekOrigin.Begin);
+                            var bmp = new Bitmap((int)(image.Width * scale), (int)(image.Height * scale));
+                            using (var graph = Graphics.FromImage(bmp))
+                            {
+                                graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                                graph.CompositingQuality = CompositingQuality.HighQuality;
+                                graph.SmoothingMode = SmoothingMode.AntiAlias;
+                                graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                                graph.DrawImage(image, 0, 0, bmp.Width, bmp.Height);
+                            }
 
-                            // Retorna o arquivo para download
-                            return File(outputStream.ToArray(), "image/png", fileName);
+                            // Gera o nome do arquivo para download
+                            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arquivo.FileName);
+                            string fileExtension = ".png";
+                            string fileName = $"{fileNameWithoutExtension}-{bmp.Width}x{bmp.Height}{fileExtension}";
+
+                            // Converte a imagem para um MemoryStream para envio
+                            using (var outputStream = new MemoryStream())
+                            {
+                                bmp.Save(outputStream, ImageFormat.Png);
+                                outputStream.Seek(0, SeekOrigin.Begin);
+
+                                // Retorna o arquivo para download
+                                return File(outputStream.ToArray(), "image/png", fileName);
+                            }
                         }
                     }
                 }
-            }
 
-            return View("Index");
+                return BadRequest(new { message = "Nenhum arquivo processado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
