@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Redimensionador_de_Imagens.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Redimensionador_de_Imagens.Controllers
 {
@@ -41,13 +42,6 @@ namespace Redimensionador_de_Imagens.Controllers
             if (model.Arquivos.Count == 0 || model.Width <= 0 || model.Height <= 0)
                 throw new Exception("Todos os campos são essenciais");
 
-            // Cria o diretório "Importacoes" se não existir
-            string importacoesPath = "Importacoes";
-            if (!Directory.Exists(importacoesPath))
-            {
-                Directory.CreateDirectory(importacoesPath);
-            }
-
             foreach (var arquivo in model.Arquivos)
             {
                 if (arquivo.Length > 0)
@@ -59,7 +53,7 @@ namespace Redimensionador_de_Imagens.Controllers
                         float width = model.Width;
                         float height = model.Height;
                         var brush = new SolidBrush(Color.Black);
-                        var image = new Bitmap(Image.FromStream(ms));
+                        var image = new Bitmap(System.Drawing.Image.FromStream(ms));
                         float scale = Math.Min(width / image.Width, height / image.Height);
                         var bmp = new Bitmap((int)(image.Width * scale), (int)(image.Height * scale));
                         using (var graph = Graphics.FromImage(bmp))
@@ -74,21 +68,20 @@ namespace Redimensionador_de_Imagens.Controllers
                             graph.DrawImage(image, 0, 0, scaleWidth, scaleHeight);
                         }
 
-                        // Gera um nome de arquivo único
+                        // Gera o nome do arquivo para download
                         string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arquivo.FileName);
                         string fileExtension = ".png";
-                        string fileName = $"{fileNameWithoutExtension}-{width}{fileExtension}";
-                        string filePath = Path.Combine(importacoesPath, fileName);
+                        string fileName = $"{fileNameWithoutExtension}-{bmp.Width}x{bmp.Height}{fileExtension}";
 
-                        int fileCount = 1;
-                        while (System.IO.File.Exists(filePath))
+                        // Converte a imagem para um MemoryStream para envio
+                        using (var outputStream = new MemoryStream())
                         {
-                            fileName = $"{fileNameWithoutExtension}-{width}({fileCount}){fileExtension}";
-                            filePath = Path.Combine(importacoesPath, fileName);
-                            fileCount++;
-                        }
+                            bmp.Save(outputStream, ImageFormat.Png);
+                            outputStream.Seek(0, SeekOrigin.Begin);
 
-                        bmp.Save(filePath, ImageFormat.Png);
+                            // Retorna o arquivo para download
+                            return File(outputStream.ToArray(), "image/png", fileName);
+                        }
                     }
                 }
             }

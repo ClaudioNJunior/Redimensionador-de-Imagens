@@ -41,15 +41,37 @@
                     url: "/Home/Redimensionar",
                     type: 'POST',
                     data: formData,
-                    success: function (data) {
-                        alert(data)
+                    xhrFields: {
+                        responseType: 'blob'  // Adicionado para tratar a resposta como blob
+                    },
+                    success: function (data, status, xhr) {
+                        var blob = new Blob([data], { type: 'image/png' });
+                        var downloadUrl = URL.createObjectURL(blob);
+                        var a = document.createElement("a");
+
+                        // Extrai o nome do arquivo do header 'Content-Disposition'
+                        var fileName = "";
+                        var disposition = xhr.getResponseHeader('Content-Disposition');
+                        if (disposition && disposition.indexOf('attachment') !== -1) {
+                            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                            var matches = filenameRegex.exec(disposition);
+                            if (matches != null && matches[1]) {
+                                fileName = matches[1].replace(/['"]/g, '');
+                            }
+                        }
+
+                        a.href = downloadUrl;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(downloadUrl);
                     },
                     cache: false,
                     contentType: false,
                     processData: false
                 });
             });
-
         });
     </script>
 }
