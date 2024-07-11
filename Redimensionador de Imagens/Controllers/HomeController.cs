@@ -41,16 +41,20 @@ namespace Redimensionador_de_Imagens.Controllers
             if (model.Arquivos.Count == 0 || model.Width <= 0 || model.Height <= 0)
                 throw new Exception("Todos os campos são essenciais");
 
+            // Cria o diretório "Importacoes" se não existir
+            string importacoesPath = "Importacoes";
+            if (!Directory.Exists(importacoesPath))
+            {
+                Directory.CreateDirectory(importacoesPath);
+            }
+
             foreach (var arquivo in model.Arquivos)
             {
                 if (arquivo.Length > 0)
                 {
-                    //byte[] imagem;
-
                     using (var ms = new MemoryStream())
                     {
                         arquivo.CopyTo(ms);
-                        //imagem = ms.ToArray();
 
                         float width = model.Width;
                         float height = model.Height;
@@ -58,16 +62,33 @@ namespace Redimensionador_de_Imagens.Controllers
                         var image = new Bitmap(Image.FromStream(ms));
                         float scale = Math.Min(width / image.Width, height / image.Height);
                         var bmp = new Bitmap((int)(image.Width * scale), (int)(image.Height * scale));
-                        var graph = Graphics.FromImage(bmp);
-                        graph.InterpolationMode = InterpolationMode.High;
-                        graph.CompositingQuality = CompositingQuality.HighQuality;
-                        graph.SmoothingMode = SmoothingMode.AntiAlias;
-                        var scaleWidth = (int)(image.Width * scale);
-                        var scaleHeight = (int)(image.Height * scale);
-                        graph.FillRectangle(brush, new RectangleF(0, 0, width, height));
-                        graph.DrawImage(image, 0, 0, scaleWidth, scaleHeight);
+                        using (var graph = Graphics.FromImage(bmp))
+                        {
+                            graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                            graph.CompositingQuality = CompositingQuality.HighQuality;
+                            graph.SmoothingMode = SmoothingMode.AntiAlias;
+                            graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                            var scaleWidth = (int)(image.Width * scale);
+                            var scaleHeight = (int)(image.Height * scale);
+                            graph.FillRectangle(brush, new RectangleF(0, 0, width, height));
+                            graph.DrawImage(image, 0, 0, scaleWidth, scaleHeight);
+                        }
 
-                        bmp.Save("Importacoes/"+DateTime.Now.ToString("yyMMddHHmmssfff")+arquivo.FileName, ImageFormat.Jpeg);
+                        // Gera um nome de arquivo único
+                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arquivo.FileName);
+                        string fileExtension = ".png";
+                        string fileName = $"{fileNameWithoutExtension}-{width}{fileExtension}";
+                        string filePath = Path.Combine(importacoesPath, fileName);
+
+                        int fileCount = 1;
+                        while (System.IO.File.Exists(filePath))
+                        {
+                            fileName = $"{fileNameWithoutExtension}-{width}({fileCount}){fileExtension}";
+                            filePath = Path.Combine(importacoesPath, fileName);
+                            fileCount++;
+                        }
+
+                        bmp.Save(filePath, ImageFormat.Png);
                     }
                 }
             }
