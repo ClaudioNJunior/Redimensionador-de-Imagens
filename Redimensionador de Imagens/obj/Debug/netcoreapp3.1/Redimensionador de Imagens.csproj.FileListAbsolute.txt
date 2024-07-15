@@ -38,3 +38,46 @@ E:\Desenvolvimento\ASP\Redimensionador de Imagens\Redimensionador-de-Imagens\Red
 E:\Desenvolvimento\ASP\Redimensionador de Imagens\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 E:\Desenvolvimento\ASP\Redimensionador de Imagens\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.csprojAssemblyReference.cache
 E:\Desenvolvimento\ASP\Redimensionador de Imagens\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\appsettings.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.StaticWebAssets.xml
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.exe
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.deps.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.runtimeconfig.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.runtimeconfig.dev.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.dll
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.pdb
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.Views.dll
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\bin\Debug\netcoreapp3.1\Redimensionador de Imagens.Views.pdb
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.csproj.AssemblyReference.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.AssemblyInfoInputs.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.AssemblyInfo.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.csproj.CoreCompileInputs.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.RazorAssemblyInfo.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.RazorAssemblyInfo.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.sourcelink.json
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.TagHelpers.input.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.TagHelpers.output.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.RazorCoreGenerate.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.RazorTargetAssemblyInfo.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.RazorTargetAssemblyInfo.cs
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.Views.pdb
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\Redimensionador de Imagens.StaticWebAssets.Manifest.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\Redimensionador de Imagens.StaticWebAssets.Pack.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.Redimensionador de Imagens.Microsoft.AspNetCore.StaticWebAssets.props
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.Redimensionador de Imagens.props
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.Redimensionador de Imagens.props
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.Redimensionador de Imagens.props
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.dll
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.pdb
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimensionador de Imagens.genruntimeconfig.cache
+C:\GitHub\ClaudioNJunior\Redimensionador-de-Imagens\Redimensionador de Imagens\obj\Debug\netcoreapp3.1\Redimens.078BEAC8.Up2Date

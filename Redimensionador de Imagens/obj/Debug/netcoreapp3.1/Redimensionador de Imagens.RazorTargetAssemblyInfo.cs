@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("Redimensionador de Imagens")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bb3d2df4c1e246b400f7b417b3655cdf4570569")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Redimensionador de Imagens.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
